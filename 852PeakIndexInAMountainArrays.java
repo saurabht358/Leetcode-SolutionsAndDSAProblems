@@ -1,3 +1,4 @@
+//Solution No. 1
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
         int max = Integer.MIN_VALUE,index=-1;  
@@ -21,5 +22,24 @@ class Solution {
             }
         }
         return index;
+    }
+}
+
+// Solution No. 2
+class Solution {
+    public int findPeakElement(int[] arr) {
+        
+        int l=0,h=arr.length-1;
+
+        while(l<h){
+            int mid= l+(h-l)/2;
+            
+            if(arr[mid]>arr[mid+1]){
+                h = mid;
+            }else{
+                l = mid+1;
+            }
+        }
+        return l;  
     }
 }
