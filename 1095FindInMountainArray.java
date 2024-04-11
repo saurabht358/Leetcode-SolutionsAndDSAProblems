@@ -1,22 +1,13 @@
-/**
- * // This is MountainArray's API interface.
- * // You should not implement it, or speculate about its implementation
- * interface MountainArray {
- *     public int get(int index) {}
- *     public int length() {}
- * }
- */
  
 class Solution {
     public int findInMountainArray(int target, MountainArray arr) {
         
         int ind = findPeakElement(arr);
         int left= BSearch(arr,target,0,ind);
+        if (left>=0) return left;
         int right= BSearch(arr,target,ind+1,arr.length()-1);
-        if(left < 0 && right<0) return -1;
-        if(left==-1) return right;
-        if(right==-1) return left;
-        return Math.min(left,right);
+        return right;
+         
     }
     public int BSearch(MountainArray arr,int target,int l,int h){
         boolean flag = arr.get(l) < arr.get(h);
