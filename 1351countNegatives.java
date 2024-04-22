@@ -1,4 +1,4 @@
-
+// Solution N0. 1
 class Solution {
     public int countNegatives(int[][] grid) {
         int row=0,col=0,ans=0;
@@ -14,6 +14,23 @@ class Solution {
             }
             ans = ans + grid[0].length-neg;
         }
+        return ans;
+    }
+}
+
+// Solution No. 2
+class Solution {
+    public int countNegatives(int[][] grid) {
+        
+            int c=0,r= grid.length -1,ans=0;
+            while(r >=0 && c < grid[0].length){
+                if(grid[r][c] < 0){
+                    ans+= grid[0].length -c;
+                    r--;
+                }else c++;
+            }
+
+    
         return ans;
     }
 }
