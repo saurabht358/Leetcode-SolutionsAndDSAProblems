@@ -13,6 +13,7 @@
  *     }
  * }
  */
+//Solution 1
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
         ArrayList<Integer> ans = inorder(root);
@@ -41,4 +42,21 @@ class Solution {
         ans.addAll(inorder(node.right));
         return ans;
     }
+}
+
+//Solution 2;
+public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> set = new HashSet<>();
+        return checkSum(root,set,k);
+
+}   
+private boolean checkSum(TreeNode node,Set<Integer> set,int k){
+    if(node==null){
+        return false;
+    }
+    if(set.contains(k-node.val)){
+        return true;
+    }
+    set.add(node.val);
+    return checkSum(node.left,set,k) || checkSum(node.right,set,k);        
 }
