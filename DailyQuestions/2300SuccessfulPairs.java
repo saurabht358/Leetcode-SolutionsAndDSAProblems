@@ -2,7 +2,7 @@
 class Solution {
      
     public int[] successfulPairs(int[] s, int[] p, long suc) {
-        Arrays.sort(p);
+        
         int m = s.length;
         int n = p.length;
         int max = -1;
